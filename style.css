@@ -1,7 +1,67 @@
+/* FONTS */
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-LightItalic.ttf");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-Medium.ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-MediumItalic.ttf");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url("res/font/Ubuntu-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* GENERAL */
+
 * {
     padding: 0;
     margin: 0;
-    font-family: Ubuntu, Arial, sans-serif;
+    font-family: ubuntu, sans-serif;
 }
 
 body {
@@ -10,6 +70,12 @@ body {
 
 nav, section {
     background-color: #ffffff;
+    border-radius: 1rem;
+}
+
+::selection, ::-moz-selection {
+    color: #ffffff;
+    background-color: #c5449e;
 }
 
 /* HEADER DESIGN */
@@ -27,7 +93,7 @@ header {
 header img {
     display: block;
     margin: auto;
-    width: 4.5em;
+    width: 4.6em;
     border: 0.4rem solid black;
     border-radius: 50%;
 }
@@ -46,8 +112,8 @@ header h1 {
 nav {
     margin: 1rem;
     
+    padding: 0 1em;
     border: 0.4rem solid black;
-    border-radius: 1rem;
     overflow: hidden;
 }
 
@@ -79,7 +145,6 @@ section {
     padding: 0.5rem;
     
     border: 0.4rem solid black;
-    border-radius: 1rem;
     overflow: hidden;
 }
 
@@ -90,20 +155,31 @@ body > section, div.grid {
 div.grid {
     display: grid;
 
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); /* TODO: auto-fill minmax */
     column-gap: 1rem;
     row-gap: 1rem;
 }
 
 section h1 {
     margin-bottom: 0.5rem;
-    color: #44c55b;
+    color: #44c55b; /* #c5449e */
 }
 
 section a {
-    color: #44c55b;
+    color: #44c55b; /* #c5449e */
     font-weight: bold;
     text-decoration: none;
+}
+
+section p + *, section img + *, section ul + * {
+    margin-top: 0.25em;
+}
+
+section img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    border-radius: 1rem;
 }
 
 section ul::before {
@@ -117,7 +193,7 @@ section ul::after {
 }
 
 section ul {
-    margin: 0.25rem 0 0.25rem 1rem;
+    margin-left: 1rem;
     list-style-type: none;
 }
 
@@ -128,4 +204,20 @@ section li {
 section li + li::before {
     content: ", ";
     font-weight: bold;
+}
+
+/* SOFTWARE & ART ENTRY DESIGN */
+
+section tr + tr td {
+    padding-top: 2px;
+}
+
+section td.title {
+    vertical-align: top;
+    padding-right: 0.5em;
+    font-weight: bold;
+}
+
+section td.title::after {
+    content: ":";
 }
