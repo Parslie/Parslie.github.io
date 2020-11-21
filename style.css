@@ -75,7 +75,7 @@ nav, section {
 
 ::selection, ::-moz-selection {
     color: #ffffff;
-    background-color: #c5449e;
+    background-color: #c5449eaa;
 }
 
 /* HEADER DESIGN */
@@ -155,7 +155,7 @@ body > section, div.grid {
 div.grid {
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(14em, 1fr)); /* TODO: auto-fill minmax */
+    grid-template-columns: repeat(auto-fit, minmax(19em, 1fr)); /* TODO: auto-fill minmax */
     column-gap: 1rem;
     row-gap: 1rem;
 }
