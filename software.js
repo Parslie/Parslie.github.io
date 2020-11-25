@@ -22,8 +22,6 @@ function applyData(data) {
         table.appendChild(whenRow);
         const whatRow = document.createElement("tr");
         table.appendChild(whatRow);
-        const whyRow = document.createElement("tr");
-        table.appendChild(whyRow);
         const howRow = document.createElement("tr");
         table.appendChild(howRow);
 
@@ -39,10 +37,6 @@ function applyData(data) {
         whatTitle.className = "title";
         whatTitle.innerHTML = "What";
         whatRow.appendChild(whatTitle);
-        const whyTitle = document.createElement("td");
-        whyTitle.className = "title";
-        whyTitle.innerHTML = "Why";
-        whyRow.appendChild(whyTitle);
         const howTitle = document.createElement("td");
         howTitle.className = "title";
         howTitle.innerHTML = "How";
@@ -57,9 +51,6 @@ function applyData(data) {
         const whatContent = document.createElement("td");
         whatContent.innerHTML =  element.what;
         whatRow.appendChild(whatContent);
-        const whyContent = document.createElement("td");
-        whyContent.innerHTML =  element.why;
-        whyRow.appendChild(whyContent);
         const howContent = document.createElement("td");
         howContent.innerHTML =  element.how;
         howRow.appendChild(howContent);
@@ -67,6 +58,17 @@ function applyData(data) {
         entryDiv.appendChild(section);
     }
 }
+
+/*
+        {
+            "title": "Test Title", 
+            "image": "res/img/parslie.png",
+            "type": "Test Type", 
+            "when": "Test Time", 
+            "what": "Test Description", 
+            "how": "Test Source"
+        }
+*/
 
 window.onload = function() {
     applyData(JSON.parse(`[
@@ -76,32 +78,7 @@ window.onload = function() {
             "type": "Test Type", 
             "when": "Test Time", 
             "what": "Test Description", 
-            "why": "Test Reason",
             "how": "Test Source"
-        },{
-            "title": "Test Title2", 
-            "image": "res/img/parslie.png",
-            "type": "Test Type2", 
-            "when": "Test Time2", 
-            "what": "Test Description2", 
-            "why": "Test Reason2",
-            "how": "Test Source2"
-        },{
-            "title": "Test Title3", 
-            "image": "res/img/parslie.png",
-            "type": "Test Type3", 
-            "when": "Test Time3", 
-            "what": "Test Description3", 
-            "why": "Test Reason3",
-            "how": "Test Source3"
-        },{
-            "title": "Test Title3", 
-            "image": "res/img/parslie.png",
-            "type": "Test Type3", 
-            "when": "Test Time3", 
-            "what": "Test Description3", 
-            "why": "Test Reason3",
-            "how": "Test Source3"
         }
     ]`));
 }

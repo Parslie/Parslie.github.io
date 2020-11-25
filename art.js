@@ -59,6 +59,17 @@ function applyData(data) {
     }
 }
 
+/*
+        {
+            "title": "Test Title", 
+            "image": "res/img/parslie.png",
+            "type": "Test Type", 
+            "what": "Test Description", 
+            "when": "Test Time", 
+            "how": "Test Source"
+        }
+*/
+
 window.onload = function() {
     applyData(JSON.parse(`[
         {
@@ -68,20 +79,6 @@ window.onload = function() {
             "what": "Test Description", 
             "when": "Test Time", 
             "how": "Test Source"
-        },{
-            "title": "Double Jam", 
-            "image": "res/img/DoubleJams.png",
-            "type": "Photoshop", 
-            "what": "RMs face photoshopped over two of my friends' faces",
-            "when": "9th grade (2015/2016)",  
-            "how": "Photoshop"
-        },{
-            "title": "J-Horse", 
-            "image": "res/img/J-Horse.png",
-            "type": "Photoshop", 
-            "what": "A photoshop if a horses face onto J-Hope's face, based on his (defunct) nickname", 
-            "when": "9th grade (2015/2016)", 
-            "how": "Photoshop"
         }
     ]`));
 }
