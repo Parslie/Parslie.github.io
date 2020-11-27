@@ -9,6 +9,15 @@
     overflow: hidden;
 }
 
+.entry .img-container:hover {
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.entry .img-container:hover img {
+    opacity: 0.75;
+}
+
 .entry .tags {
     list-style-type: none;
     margin-left: 0 !important;
