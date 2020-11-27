@@ -73,12 +73,14 @@ function applyData(data) {
 window.onload = function() {
     applyData(JSON.parse(`[
         {
-            "title": "Test Title", 
+            "title": "Doom-like (W.I.P)", 
             "image": "res/img/parslie.png",
-            "type": "Test Type", 
-            "what": "Test Description", 
-            "when": "Test Time", 
-            "how": "Test Source"
+            "description": "This is a project I started for fun, because of my fondness for the graphical & logical style of old-school doom-like games!",
+            "tags": [
+                "Video Game",
+                "FPS",
+                "Unity"
+            ]
         }
     ]`));
 }

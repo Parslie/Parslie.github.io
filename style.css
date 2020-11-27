@@ -171,17 +171,39 @@ section a {
     text-decoration: none;
 }
 
-section p + *, section img + *, section ul + * {
+section a:hover {
+    text-decoration: underline;
+}
+
+section p + *, section ul + *, section a + * {
     margin-top: 0.25em;
+}
+
+section div + * {
+    margin-top: 0.5em;
 }
 
 section img {
     display: block;
-    margin: auto;
-    max-width: 100%;
-    border-radius: 1rem;
 }
 
+section ul.tags {
+    list-style-type: none;
+}
+
+section ul.tags::before {
+    content: "Tags: ";
+}
+
+section ul.tags li {
+    display: inline;
+}
+
+section ul.tags li + li::before {
+    content: ", ";
+}
+
+/*
 section ul::before {
     content: "[";
     font-weight: bold;
@@ -205,6 +227,7 @@ section li + li::before {
     content: ", ";
     font-weight: bold;
 }
+*/
 
 /* SOFTWARE & ART ENTRY DESIGN */
 
