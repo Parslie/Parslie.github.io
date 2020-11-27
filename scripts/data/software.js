@@ -7,7 +7,8 @@ const entries = JSON.parse(`[
         "tags": [
             "Video Game",
             "FPS",
-            "Unity"
+            "Unity",
+            "PC"
         ]
     },{
         "title": "Outstanding (W.I.P)", 
@@ -16,7 +17,8 @@ const entries = JSON.parse(`[
         "repository": "https://github.com/Parslie/outstanding-app",
         "tags": [
             "Social Media",
-            "Android Studio"
+            "Android Studio",
+            "Android"
         ],
         "images": [
             "res/img/outstanding/splash.jpg",
