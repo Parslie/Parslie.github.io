@@ -1,9 +1,12 @@
 <html>
     <head>
         <title>Viktor</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="styles/base.css" />
+        <link rel="stylesheet" href="styles/entries.css" />
         
-        <script type="text/javascript" src="art.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/data/art.js"></script>
+        <script type="text/javascript" src="scripts/entryApplicator.js"></script>
     </head>
     <body>
         <header>
@@ -18,16 +21,15 @@
             </ul>
         </nav>
 
-        <section>
-            <p>This page is currently <b>W.I.P</b>, it will be updated with:</p>
-            <ul>
-                <li>Real entries (instead of one test entry)</li>
-                <li>Better entry-handling</li>
-                <li>Better page-styling</li>
-            </ul>
-        </section>
-
-        <div class="grid" id="entries">
+        <div id="content">
+            <section>
+                <p>This page is currently <b>W.I.P</b>, it will be updated with:</p>
+                <ul>
+                    <li>Real entries (instead of one test entry)</li>
+                </ul>
+            </section>
+            
+            <div class="grid" id="entries"></div>
         </div>
     </body>
 </html>

@@ -139,20 +139,9 @@ nav a:hover, nav a#selected {
     background-color: #44c55b;
 }
 
-/* SECTION DESIGN */
+/* CONTENT DESIGN */
 
-section {
-    padding: 0.5rem;
-    
-    border: 0.4rem solid black;
-    overflow: hidden;
-}
-
-body > section, div.grid {
-    margin: 1rem 4rem;
-}
-
-div.grid {
+.grid {
     display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(19em, 1fr)); /* TODO: auto-fill minmax */
@@ -160,87 +149,44 @@ div.grid {
     row-gap: 1rem;
 }
 
-section h1 {
+#content {
+    margin: 1rem 4rem;
+}
+
+#content ul {
+    margin-left: 1em;
+}
+
+#content section {
+    padding: 0.5rem;
+    
+    border: 0.4rem solid black;
+    overflow: hidden;
+}
+
+#content > section, .grid {
+    margin: 1rem 0;
+}
+
+#content p + *, #content ul + *, #content a + * {
+    margin-top: 0.25em;
+}
+
+#content div + * {
+    margin-top: 0.75em;
+}
+
+#content h1 {
     margin-bottom: 0.5rem;
     color: #44c55b; /* #c5449e */
 }
 
-section a {
+#content a {
     color: #44c55b; /* #c5449e */
     font-weight: bold;
     text-decoration: none;
 }
 
-section a:hover {
+#content a:hover {
     text-decoration: underline;
-}
-
-section p + *, section ul + *, section a + * {
-    margin-top: 0.25em;
-}
-
-section div + * {
-    margin-top: 0.5em;
-}
-
-section img {
-    display: block;
-}
-
-section ul.tags {
-    list-style-type: none;
-}
-
-section ul.tags::before {
-    content: "Tags: ";
-}
-
-section ul.tags li {
-    display: inline;
-}
-
-section ul.tags li + li::before {
-    content: ", ";
-}
-
-/*
-section ul::before {
-    content: "[";
-    font-weight: bold;
-}
-
-section ul::after {
-    content: "]";
-    font-weight: bold;
-}
-
-section ul {
-    margin-left: 1rem;
-    list-style-type: none;
-}
-
-section li {
-    display: inline;
-}
-
-section li + li::before {
-    content: ", ";
-    font-weight: bold;
-}
-*/
-
-/* SOFTWARE & ART ENTRY DESIGN */
-
-section tr + tr td {
-    padding-top: 2px;
-}
-
-section td.title {
-    vertical-align: top;
-    padding-right: 0.5em;
-    font-weight: bold;
-}
-
-section td.title::after {
-    content: ":";
 }
