@@ -18,7 +18,9 @@ $(document).ready(function() {
         let $section = $('<section class="entry">').appendTo($entries);
 
         // Header
-        $('<h1>').append(entry.title).appendTo($section);
+        let $title = $('<h1>').append(entry.title).appendTo($section);
+        if (entry.color)
+            $title.css('color', entry.color);
 
         // Place image
         let $imgContainer = $('<div class="img-container">').appendTo($section);
@@ -51,7 +53,9 @@ $(document).ready(function() {
         // Footer
         if (entry.repository) {
             let $repository = $('<p>').append('Repository: ').appendTo($section);
-            $('<a>').attr('href', entry.repository).append(entry.repository).appendTo($repository);
+            let $repLink = $('<a>').attr('href', entry.repository).append(entry.repository).appendTo($repository);
+            if (entry.color)
+                $repLink.css('color', entry.color);
         }
 
         if (entry.tags) {
@@ -59,7 +63,9 @@ $(document).ready(function() {
 
             $.each(entry.tags, function(i, tag) {
                 let $tagItem = $('<li>').appendTo($tagList);
-                $('<a>').append(tag).appendTo($tagItem);
+                let $tagLink = $('<a>').append(tag).appendTo($tagItem);
+                if (entry.color)
+                    $tagLink.css('color', entry.color);
             });
         }
     });
