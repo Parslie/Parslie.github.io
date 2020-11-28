@@ -1,6 +1,19 @@
 $(document).ready(function() {
     const $entries = $('#entries');
 
+    // Create image viewer
+    const $imageViewerBg = $('<div id="image-viewer-bg">')
+        .css('visibility', 'hidden')
+        .appendTo('body');
+    const $imageViewerImg = $('<img id="image-viewer">')
+        .css('visibility', 'hidden')
+        .appendTo('body');
+
+    $imageViewerBg.click(function() {
+        $imageViewerBg.css('visibility', 'hidden');
+        $imageViewerImg.css('visibility', 'hidden');
+    });
+
     $.each(entries, function(i, entry) {
         let $section = $('<section class="entry">').appendTo($entries);
 
@@ -20,12 +33,17 @@ $(document).ready(function() {
                 $img.css('width', '100%');
             }
             else {
-                $img.css('position', 'relative');
-                $img.css('top', '0');
-                $img.css('bottom', '0');
+                $img.css('height', '100%');
                 $img.css('min-width', '100%');
             }
         };
+
+        // Set image onClick
+        $img.click(function() {
+            $imageViewerImg.attr('src', $img.attr('src'));
+            $imageViewerBg.css('visibility', 'visible');
+            $imageViewerImg.css('visibility', 'visible');
+        });
 
         // Content
         $('<p>').append(entry.description).appendTo($section);

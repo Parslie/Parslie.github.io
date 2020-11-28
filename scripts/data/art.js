@@ -1,12 +1,12 @@
 const entries = JSON.parse(`[
     {
-        "title": "Doom-like (W.I.P)", 
-        "image": "res/img/parslie.png",
-        "description": "This is a project I started for fun, because of my fondness for the graphical & logical style of old-school doom-like games!",
+        "title": "Was ist das?", 
+        "image": "res/img/ummm.jpg",
+        "description": "Ich weiß nicht...",
         "tags": [
-            "Video Game",
-            "FPS",
-            "Unity"
+            "Wie?",
+            "Wer?",
+            "Warum?"
         ]
     }
 ]`)
