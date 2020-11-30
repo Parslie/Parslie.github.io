@@ -1,3 +1,10 @@
+:root {
+    --theme-color-dark: #44c55b;
+    --theme-color-bright: #8deda7;
+
+    /* TODO: create variables for spacing */
+}
+
 /* FONTS */
 
 @font-face {
@@ -65,6 +72,7 @@
 }
 
 body {
+    margin-bottom: 1.8em;
     background-color: #333333;
 }
 
@@ -76,6 +84,15 @@ nav, section {
 ::selection, ::-moz-selection {
     color: #ffffff;
     background-color: #c5449eaa;
+}
+
+#last-update-label {
+    position: fixed; /* TODO: make absolute or make a footer */
+    bottom: 0.5em;
+    left: 0.5em;
+
+    z-index: -1;
+    color: #ffffff;
 }
 
 /* HEADER DESIGN */
@@ -129,14 +146,14 @@ nav a {
     display: block;
     padding: 0.5rem;
 
-    color: #44c55b;
+    color: var(--theme-color-dark);
     font-weight: bold;
     text-decoration: none;
 }
 
 nav a:hover, nav a#selected {
-    color: #8deda7;
-    background-color: #44c55b;
+    color: var(--theme-color-bright);
+    background-color: var(--theme-color-dark);
 }
 
 /* CONTENT DESIGN */
@@ -178,7 +195,7 @@ nav a:hover, nav a#selected {
 
 #content h1 {
     margin-bottom: 0.2rem;
-    color: #44c55b; /* #c5449e */
+    color: var(--theme-color-dark);
 }
 
 #content section > img {
@@ -187,7 +204,7 @@ nav a:hover, nav a#selected {
 }
 
 #content a {
-    color: #44c55b; /* #c5449e */
+    color: var(--theme-color-dark);
     font-weight: bold;
     text-decoration: none;
 }
