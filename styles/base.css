@@ -131,7 +131,7 @@ content p {
 
 /* MEDIA-SPECIFIC */
 
-@media only screen and (min-width: 0cm) {
+@media only screen and (min-width: 0px) {
 	body {
 		padding: 0 10%;
 	}
@@ -142,7 +142,7 @@ content p {
 	}
 }
 
-@media only screen and (min-width: 14cm) {
+@media only screen and (min-width: 641px) {
 	body {
 		padding: 0 15%;
 	}
@@ -155,13 +155,13 @@ content p {
 	}
 }
 
-@media only screen and (min-width: 32cm) {
+@media only screen and (min-width: 1281px) {
 	body {
 		padding: 0 20%;
 	}
 }
 
-@media only screen and (min-width: 52cm) {
+@media only screen and (min-width: 1921px) {
 	body {
 		padding: 0 25%;
 	}
