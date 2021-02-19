@@ -125,7 +125,7 @@ content.grid {
 }
 
 content p {
-	line-height: 1.5;
+	line-height: 1.4;
 	text-align: justify;
 }
 
@@ -133,36 +133,24 @@ content p {
 
 @media only screen and (min-width: 0px) {
 	body {
-		padding: 0 10%;
-	}
-	
-	#pfp {
-		margin-bottom: 1em;
-		width: 100%;
+		padding: 0 6%;
 	}
 }
 
 @media only screen and (min-width: 641px) {
 	body {
-		padding: 0 15%;
-	}
-	
-	#pfp {
-		float: left;
-		margin-right: 1rem;
-		margin-bottom: 0.5rem;
-		width: 5cm;
+		padding: 0 12%;
 	}
 }
 
 @media only screen and (min-width: 1281px) {
 	body {
-		padding: 0 20%;
+		padding: 0 18%;
 	}
 }
 
 @media only screen and (min-width: 1921px) {
 	body {
-		padding: 0 25%;
+		padding: 0 24%;
 	}
 }
