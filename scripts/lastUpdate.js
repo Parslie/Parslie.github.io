@@ -6,7 +6,7 @@ $(document).ready(function() {
                 let date = json.commit.commit.author.date;
                 let formattedDate = new Date(date).toLocaleString();
 
-                $('<p id="last-update-label">').append('Last Updated: ' + formattedDate).appendTo('footer');
+                $('<p id="last-update-label">').append('Website last updated at ' + formattedDate).appendTo('footer');
             })
         })
         .catch(e => {
