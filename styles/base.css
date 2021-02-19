@@ -66,6 +66,8 @@
 /* GENERAL */
 
 body {
+	padding: 0 10%;
+	
 	color: var(--foreground);
 	background-color: var(--background);
 	border-color: var(--foreground);
@@ -127,30 +129,4 @@ content.grid {
 content p {
 	line-height: 1.4;
 	text-align: justify;
-}
-
-/* MEDIA-SPECIFIC */
-
-@media only screen and (min-width: 0px) {
-	body {
-		padding: 0 6%;
-	}
-}
-
-@media only screen and (min-width: 641px) {
-	body {
-		padding: 0 12%;
-	}
-}
-
-@media only screen and (min-width: 1281px) {
-	body {
-		padding: 0 18%;
-	}
-}
-
-@media only screen and (min-width: 1921px) {
-	body {
-		padding: 0 24%;
-	}
 }
