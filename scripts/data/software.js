@@ -3,7 +3,7 @@ const entries = JSON.parse(`[
         "title": "Lådholm Fruit Farmer", 
         "image": "res/img/ummm.jpg",
         "description": "A project from my 2nd year of high school. I was a novice at game design then, but I'm still proud of it!",
-        "repository": "",
+        "repoName": "",
         "tags": [
             "Video Game",
             "Unity",
@@ -13,7 +13,7 @@ const entries = JSON.parse(`[
         "title": "Outstanding (W.I.P)", 
         "image": "res/img/outstanding/profile.jpg",
         "description": "A university project for a social applications course. Made with a friend on github @tavro.",
-        "repository": "https://github.com/Parslie/outstanding-app",
+        "repoName": "outstanding-app",
         "tags": [
             "Social Media",
             "Android Studio",
@@ -29,7 +29,7 @@ const entries = JSON.parse(`[
         "title": "Image-splitter", 
         "image": "res/img/ummm.jpg",
         "description": "A side-project for my android icon pack. It can easily help you split up an image into several named pieces!",
-        "repository": "",
+        "repoName": "",
         "tags": [
             "Image Utility",
             "Python",
@@ -39,7 +39,7 @@ const entries = JSON.parse(`[
         "title": "Doom-like (W.I.P)", 
         "image": "res/img/doom-like/20201126.gif",
         "description": "A project I started for fun, because of my fondness for the graphical & logical style of old-school doom-like games!",
-        "repository": "https://github.com/Parslie/doom-like",
+        "repoName": "doom-like",
         "tags": [
             "Video Game",
             "FPS",

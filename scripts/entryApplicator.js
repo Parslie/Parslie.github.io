@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    const $entries = $('#entries');
+    /*
+	const $entries = $('#entries');
 
     // Create image viewer
     const $imageViewerBg = $('<div id="image-viewer-bg">')
@@ -69,4 +70,55 @@ $(document).ready(function() {
             });
         }
     });
+	*/
+	
+	// Append each entry to the content element
+	$.each(entries, function(i, entry) {
+        let $section = $('<div class="entry">').appendTo('content');
+		
+		// Add entry header
+		$('<h3>').append(entry.title).appendTo($section);
+		
+		// Add entry image
+        let $imgContainer = $('<div class="img-container">').appendTo($section);
+        let $img = $('<img>').attr('src', entry.image).appendTo($imgContainer);
+		
+		// Resize image 
+        let theImg = new Image();
+        theImg.src = $img.attr('src');
+
+        theImg.onload = function() {
+            if (theImg.width < theImg.height) {
+                $img.css('width', '100%');
+            }
+            else {
+                $img.css('height', '100%');
+                $img.css('min-width', '100%');
+            }
+        };
+		
+		// Add entry description
+        $('<p>').append(entry.description).appendTo($section);
+		
+		// Add entry repository
+		if (entry.repoName) {
+			let $repoLink = "https://github.com/Parslie/" + entry.repoName;
+			let $updateLink = "https://api.github.com/repos/parslie/" + entry.repoName + "/branches/master";
+			
+			fetch($updateLink)
+			.then(resp => {
+				resp.json().then(json => {
+					let date = json.commit.commit.author.date;
+					let formattedDate = new Date(date).toLocaleString();
+
+					let $repoLabel = $('<p>').appendTo($section);
+					$('<a>').attr('href', $repoLink).append("Repository").appendTo($repoLabel);
+					$repoLabel.append(' last updated at ' + formattedDate);
+				})
+			})
+			.catch(e => {
+				console.log(e);
+			});
+		}
+	});
 });
