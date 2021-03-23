@@ -1,176 +1,108 @@
 :root {
-    --background: #ffffff;
-	--foreground: #333333;
-	--accent: #6bbd57;
-	--accent-dark: #569746;
+    --background: #081824;
+    --foreground: #f8f8f8;
+    --red: #e25249;
+    --green: #bed255;
+    --blue: #007ec8;
 
-    /* TODO: create variables for spacing */
+    --side-menu-width: 272px;
+    --content-padding: 36px;
+    --title-margin: 12px;
 }
 
-/* FONTS */
+* {
+    margin: 0;
+    padding: 0;
 
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-Light.ttf");
-    font-weight: 300;
-    font-style: normal;
+    font-family: sans-serif;
 }
 
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-LightItalic.ttf");
-    font-weight: 300;
-    font-style: italic;
-}
+/* Layout */
 
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-Regular.ttf");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-Italic.ttf");
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-Medium.ttf");
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-MediumItalic.ttf");
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-Bold.ttf");
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: ubuntu;
-    src: url("res/font/Ubuntu-BoldItalic.ttf");
-    font-weight: bold;
-    font-style: italic;
-}
-
-/* GENERAL */
-
-body {
-	padding: 0 10%;
-	
-	color: var(--foreground);
-	background-color: var(--background);
-	border-color: var(--foreground);
-	
-	font-family: ubuntu, sans-serif;
-}
-
-
-nav {
-	border-width: 1px 0 1px 0;
-	border-style: solid;
-}
-
-footer {
-	border-top: 1px solid;
-}
-
-/* NAVIGATION */
-
-nav ul {
-	margin: 0;
-	padding: 0;
-	height: calc(1rem + 1rem);
-	
-	list-style-type: none;
-}
-
-nav li {
-	float: left;
-}
-
-nav a {
-	display: block;
-	padding: 0.5rem 1rem;
-	height: 1rem;
-	
-	color: var(--foreground);
-	font-weight: bold;
-	text-decoration: none;
-}
-
-nav a:hover, nav a.selected {
-	background-color: rgba(0, 0, 0, 0.1);
-}
-
-nav a.selected {
-	cursor: default;
-}
-
-/* CONTENT */
-
-content.grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-	column-gap: 2rem;
-	/* row-gap: 2rem; */ 
-}
-
-content p {
-	line-height: 1.4;
-	text-align: justify;
-}
-
-content a {
-	color: var(--accent);
-	font-weight: bold;
-	text-decoration: none;
-}
-
-content a:visited {
-	color: var(--accent-dark);
-}
-
-content a:hover {
-	text-decoration: underline;
-}
-
-/* POSTS */
-
-.img-container {
-    position: relative;
+#side-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--side-menu-width);
     
+    text-align: center;
+}
+
+#side-menu .title {
+    padding: var(--title-margin);
+}
+
+#nav a {
+    display: block;
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* Images are shown as 16:9 */
-
-    overflow: hidden;
+    padding: calc(var(--content-padding) / 4) 0;
 }
 
-.img-container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#content {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: var(--side-menu-width);
+    padding: var(--content-padding);
+
+    text-align: left;
+    overflow-y: auto;
 }
 
-.img-container:hover {
-    background-color: #000000;
-    cursor: pointer;
+#content div {
+    padding: calc(var(--content-padding) / 3);
+    margin-bottom: var(--content-padding);
 }
 
-.img-container:hover img {
-    opacity: 0.75;
+#content div .title {
+    margin-bottom: calc(var(--content-padding) / 3);
+}
+
+#content div .tags {
+    margin-top: calc(var(--content-padding) / 3);
+}
+
+#content div .tags li {
+    display: inline-block;
+}
+
+/* Colors */
+
+#side-menu {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+#content div {
+    background-color: var(--foreground);
+    color: var(--background);
+}
+
+#content.red, #nav a.red.selected, #nav .red:hover {
+    background-color: var(--red);
+}
+
+#content.green, #nav a.green.selected, #nav .green:hover {
+    background-color: var(--green);
+}
+
+#content.blue, #nav a.blue.selected, #nav .blue:hover {
+    background-color: var(--blue);
+}
+
+#nav a {
+    color: var(--foreground);
+    text-decoration: none;
+}
+
+/* Styles */
+
+#content div .tags {
+    list-style-type: none;
+}
+
+#content div .tags li::before {
+    content: '#';
 }
