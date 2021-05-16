@@ -19,27 +19,27 @@
 
 /* Layout */
 
-#side-menu {
+body > aside {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     width: var(--side-menu-width);
-    
+
     text-align: center;
 }
 
-#side-menu .title {
+body > aside header {
     padding: var(--title-margin);
 }
 
-#nav a {
+nav a {
     display: block;
     width: 100%;
     padding: calc(var(--content-padding) / 4) 0;
 }
 
-#content {
+content {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -51,58 +51,58 @@
     overflow-y: auto;
 }
 
-#content div {
+content > section {
     padding: calc(var(--content-padding) / 3);
     margin-bottom: var(--content-padding);
 }
 
-#content div .title {
+content > section .title {
     margin-bottom: calc(var(--content-padding) / 3);
 }
 
-#content div .tags {
+content > section .tags {
     margin-top: calc(var(--content-padding) / 3);
 }
 
-#content div .tags li {
+content > section .tags li {
     display: inline-block;
 }
 
 /* Colors */
 
-#side-menu {
+body > aside {
     background-color: var(--background);
     color: var(--foreground);
 }
 
-#content div {
+content > section {
     background-color: var(--foreground);
     color: var(--background);
 }
 
-#content.red, #nav a.red.selected, #nav .red:hover {
+content.red, nav a.red.selected, nav .red:hover {
     background-color: var(--red);
 }
 
-#content.green, #nav a.green.selected, #nav .green:hover {
+content.green, nav a.green.selected, nav .green:hover {
     background-color: var(--green);
 }
 
-#content.blue, #nav a.blue.selected, #nav .blue:hover {
+content.blue, nav a.blue.selected, nav .blue:hover {
     background-color: var(--blue);
 }
 
-#nav a {
+nav a {
     color: var(--foreground);
     text-decoration: none;
 }
 
 /* Styles */
 
-#content div .tags {
+content > section .tags {
     list-style-type: none;
 }
 
-#content div .tags li::before {
+content > section .tags li::before {
     content: '#';
 }
