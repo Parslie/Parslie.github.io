@@ -62,16 +62,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
             let image = document.createElement("img");
             image.className = "clickable-img";
             image.src = entry.image;
-            image.style.width = "100%";
             imageContainer.appendChild(image);
 
             function resizeImg(event) {
-                imageContainer.style.maxHeight = imageContainer.offsetWidth + "px";
+                imageContainer.style.height = imageContainer.offsetWidth + "px";
             }
 
-            image.onload = resizeImg;
+            let imageObj = new Image();
+            imageObj.src = entry.image;
+            imageObj.onload = function() {
+                resizeImg();
+
+                if (imageObj.width < imageObj.height) {
+                    image.style.width = "100%";
+                }
+                else {
+                    image.style.height = "100%";
+                }
+            }
+
             window.addEventListener("resize", resizeImg);
 
+            /* Activate image viewer onclick */
             image.onclick = function() {
                 imageViewer.style.display = "block";
                 viewedImage.src = entry.image;
