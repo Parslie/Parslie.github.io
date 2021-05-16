@@ -8,7 +8,7 @@
     --side-menu-width: 272px;
     --side-menu-margin: 12px;
     --side-menu-btn-width: 12px;
-    --content-padding: 96px;
+    --content-padding: 64px;
     --content-inner-padding: 24px;
 }
 
@@ -52,7 +52,7 @@ nav a {
     padding: var(--side-menu-btn-width) 0;
 }
 
-body > content {
+#entries {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -64,59 +64,78 @@ body > content {
     overflow-y: auto;
 }
 
-body > content > section {
+#entries > section {
     padding: calc(var(--content-inner-padding) / 2);
     margin-bottom: var(--content-padding);
 }
 
-body > content > section > * {
+#entries > section > * {
     display: block;
     padding: calc(var(--content-inner-padding) / 2);
 }
 
-body > content > section img {
+#entries > section img {
     width: 100%;
 }
 
-body > content > section .tags li {
+#entries > section .tags li {
     display: inline-block;
 }
 
-/* Colors */
+/* Styles */
 
 body > aside {
     background-color: var(--background);
     color: var(--foreground);
 }
 
-body > content > section {
+#entries > section {
     background-color: var(--foreground);
     color: var(--background);
 }
 
-body > content.red, nav a.red.selected, nav .red:hover {
+#entries.red, nav a.red.selected, nav .red:hover {
     background-color: var(--red);
 }
 
-body > content.green, nav a.green.selected, nav .green:hover {
+#entries.green, nav a.green.selected, nav .green:hover {
     background-color: var(--green);
 }
 
-body > content.blue, nav a.blue.selected, nav .blue:hover {
+#entries.blue, nav a.blue.selected, nav .blue:hover {
     background-color: var(--blue);
 }
 
 nav a {
     color: var(--foreground);
-    text-decoration: none;
+}
+
+#entries.red a {
+    color: var(--red);
+}
+
+#entries.green a {
+    color: var(--green);
+}
+
+#entries.blue a {
+    color: var(--blue);
+}
+
+#entries a:hover {
+    color: var(--background);
 }
 
 /* Styles */
 
-body > content > section .tags {
+#entries > section .tags {
     list-style-type: none;
 }
 
-body > content > section .tags li::before {
+#entries > section .tags li::before {
     content: '#';
+}
+
+a {
+    text-decoration: none;
 }
