@@ -2,13 +2,16 @@
 <html>
     <head>
         <title>Parslie</title>
-        <link rel="stylesheet" href="styles/base.css" />
+        <link rel="stylesheet" href="styles/layout.css" />
+        <link rel="stylesheet" href="styles/color.css" />
+        <link rel="stylesheet" href="styles/design.css" />
+
         <script type="text/javascript" src="scripts/updated.js"></script>
         <script type="text/javascript" src="scripts/data/software.js"></script>
         <script type="text/javascript" src="scripts/entryInjector.js"></script>
     </head>
-    <body>
-        <aside>
+    <body class="green">
+        <aside id="sidebar">
             <header>
                 <h1>Parslie</h1>
                 <p>This is a very long description, like, unnecessarily long even.</p>
@@ -23,8 +26,8 @@
             <footer>
             </footer>
         </aside>
-        <content class="green" id="entries">
-            <!--section>
+        <content id="entries">
+            <!--section class="entry">
                 <header>
                     <h2 class="title">This is a title</h2>
                 </header>

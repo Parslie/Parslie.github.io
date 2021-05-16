@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     /* Generate each entry */
     entries.forEach((entry, i) => {
         let entrySection = document.createElement("section");
+        entrySection.className = "entry";
+
         let entryHeader = document.createElement("header");
         let entryContent = document.createElement("content");
         let entryFooter = document.createElement("footer");
@@ -52,8 +54,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         entry.tags.forEach((tag, i) => {
             let tagItem = document.createElement("li");
-            tagItem.innerHTML = tag;
             tagList.appendChild(tagItem);
+
+            let tagLink = document.createElement("a");
+            tagLink.innerHTML = tag;
+            tagItem.appendChild(tagLink);
+
             tagList.appendChild(document.createTextNode("\u00A0")); /* Adds whitespace */
         });
 

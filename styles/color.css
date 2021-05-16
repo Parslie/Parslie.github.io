@@ -1,0 +1,69 @@
+:root {
+    --black: #081824;
+    --white: #f8f8f8;
+    --red: #e25249;
+    --green: #bed255;
+    --blue: #007ec8;
+}
+
+body.red {
+    background-color: var(--red);
+}
+
+body.green {
+    background-color: var(--green);
+}
+
+body.blue {
+    background-color: var(--blue);
+}
+
+/* Sidebar Menu */
+
+#sidebar {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+nav a.red:hover, nav a.red.selected {
+    background-color: var(--red);
+}
+
+nav a.green:hover, nav a.green.selected {
+    background-color: var(--green);
+}
+
+nav a.blue:hover, nav a.blue.selected {
+    background-color: var(--blue);
+}
+
+nav a {
+    color: var(--white);
+}
+
+nav a:hover, nav a.selected {
+    color: var(--black);
+}
+
+/* Entries */
+
+.entry {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+body.red .entry a {
+    color: var(--red);
+}
+
+body.green .entry a {
+    color: var(--green);
+}
+
+body.blue .entry a {
+    color: var(--blue);
+}
+
+.entry a:hover {
+    filter: brightness(75%);
+}
