@@ -6,8 +6,10 @@
     --blue: #007ec8;
 
     --side-menu-width: 272px;
-    --content-padding: 36px;
     --side-menu-margin: 12px;
+    --side-menu-btn-width: 12px;
+    --content-padding: 96px;
+    --content-inner-padding: 24px;
 }
 
 * {
@@ -38,7 +40,7 @@ body > aside header {
 
 body > aside footer {
     padding: var(--side-menu-margin);
-    
+
     display: flex;
     flex-direction: column-reverse;
     flex-grow: 1;
@@ -47,10 +49,10 @@ body > aside footer {
 nav a {
     display: block;
     width: 100%;
-    padding: calc(var(--content-padding) / 4) 0;
+    padding: var(--side-menu-btn-width) 0;
 }
 
-content {
+body > content {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -62,20 +64,21 @@ content {
     overflow-y: auto;
 }
 
-content > section {
-    padding: calc(var(--content-padding) / 3);
+body > content > section {
+    padding: calc(var(--content-inner-padding) / 2);
     margin-bottom: var(--content-padding);
 }
 
-content > section .title {
-    margin-bottom: calc(var(--content-padding) / 3);
+body > content > section > * {
+    display: block;
+    padding: calc(var(--content-inner-padding) / 2);
 }
 
-content > section .tags {
-    margin-top: calc(var(--content-padding) / 3);
+body > content > section img {
+    width: 100%;
 }
 
-content > section .tags li {
+body > content > section .tags li {
     display: inline-block;
 }
 
@@ -86,20 +89,20 @@ body > aside {
     color: var(--foreground);
 }
 
-content > section {
+body > content > section {
     background-color: var(--foreground);
     color: var(--background);
 }
 
-content.red, nav a.red.selected, nav .red:hover {
+body > content.red, nav a.red.selected, nav .red:hover {
     background-color: var(--red);
 }
 
-content.green, nav a.green.selected, nav .green:hover {
+body > content.green, nav a.green.selected, nav .green:hover {
     background-color: var(--green);
 }
 
-content.blue, nav a.blue.selected, nav .blue:hover {
+body > content.blue, nav a.blue.selected, nav .blue:hover {
     background-color: var(--blue);
 }
 
@@ -110,10 +113,10 @@ nav a {
 
 /* Styles */
 
-content > section .tags {
+body > content > section .tags {
     list-style-type: none;
 }
 
-content > section .tags li::before {
+body > content > section .tags li::before {
     content: '#';
 }
