@@ -62,6 +62,11 @@
     z-index: -1;
 }
 
+.entry {
+    display: flex;
+    flex-direction: column;
+}
+
 .entry > header {
     padding: var(--entry-padding);
 }
@@ -69,6 +74,7 @@
 .entry > content {
     padding: 0 var(--entry-padding);
     display: block;
+    flex-grow: 1;
 }
 
 .entry > footer {
