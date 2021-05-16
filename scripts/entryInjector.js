@@ -103,9 +103,22 @@ function createEntry(entry) {
         window.addEventListener("resize", resizeImg);
     }
 
-    let entryDescription = document.createElement("p");
-    entryContent.appendChild(entryDescription);
-    entryDescription.innerHTML = entry.description;
+    if (entry.list != null) {
+        let entryList = document.createElement("ul");
+        entryContent.appendChild(entryList);
+
+        entry.list.forEach(item => {
+            let entryListItem = document.createElement("li");
+            entryList.appendChild(entryListItem);
+            entryListItem.innerHTML = item;
+        });
+    }
+
+    if (entry.description != null) {
+        let entryDescription = document.createElement("p");
+        entryContent.appendChild(entryDescription);
+        entryDescription.innerHTML = entry.description;
+    }
 
     //////////////////////
     // Create entry footer

@@ -77,13 +77,21 @@
     flex-grow: 1;
 }
 
-.entry > footer {
-    padding: 0 var(--entry-padding) var(--entry-padding);
-}
-
 .entry > content > .img-container {
     width: 100%;
     overflow: hidden;
+}
+
+.entry > content > * + * {
+    margin-top: 1em;
+}
+
+.entry > content > ul{
+    margin-left: 1em;
+}
+
+.entry > footer {
+    padding: 0 var(--entry-padding) var(--entry-padding);
 }
 
 .tags li {
