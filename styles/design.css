@@ -9,3 +9,7 @@ a {
 .tags li::before {
     content: "#";
 }
+
+.clickable-img {
+    cursor: pointer;
+}

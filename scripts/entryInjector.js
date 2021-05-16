@@ -1,7 +1,18 @@
-
-
 document.addEventListener("DOMContentLoaded", function(event) {
     let entryParent = document.getElementById("entries");
+
+    /* Create image viewer */
+    let imageViewer = document.createElement("div");
+    imageViewer.id = "image-viewer";
+    imageViewer.style.display = "none";
+    document.body.appendChild(imageViewer);
+
+    let viewedImage = document.createElement("img");
+    imageViewer.appendChild(viewedImage);
+
+    imageViewer.onclick = function() {
+        imageViewer.style.display = "none";
+    }
 
     /* Generate each entry */
     entries.forEach((entry, i) => {
@@ -49,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             entryContent.appendChild(imageContainer);
 
             let image = document.createElement("img");
+            image.className = "clickable-img";
             image.src = entry.image;
             image.style.width = "100%";
             imageContainer.appendChild(image);
@@ -59,6 +71,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             image.onload = resizeImg;
             window.addEventListener("resize", resizeImg);
+
+            image.onclick = function() {
+                imageViewer.style.display = "block";
+                viewedImage.src = entry.image;
+            }
         }
 
         let description = document.createElement("p");
