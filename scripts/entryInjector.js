@@ -107,24 +107,26 @@ function createEntry(entry) {
 
     //////////////////////
     // Create entry footer
-    let entryFooter = document.createElement("footer");
-    entrySection.appendChild(entryFooter);
+    if (entry.tags) {
+        let entryFooter = document.createElement("footer");
+        entrySection.appendChild(entryFooter);
 
-    let entryTagList = document.createElement("ul");
-    entryFooter.appendChild(entryTagList);
-    entryTagList.className = "tags";
+        let entryTagList = document.createElement("ul");
+        entryFooter.appendChild(entryTagList);
+        entryTagList.className = "tags";
 
-    entry.tags.forEach((tag, i) => {
-        let entryTag = document.createElement("li");
-        entryTagList.appendChild(entryTag);
+        entry.tags.forEach((tag, i) => {
+            let entryTag = document.createElement("li");
+            entryTagList.appendChild(entryTag);
 
-        let entryTagLink = document.createElement("a");
-        entryTag.appendChild(entryTagLink);
-        entryTagLink.innerHTML = tag;
+            let entryTagLink = document.createElement("a");
+            entryTag.appendChild(entryTagLink);
+            entryTagLink.innerHTML = tag;
 
-        if (i != entry.tags.length - 1)
-            entryTagList.appendChild(document.createTextNode("\u00A0")); // Adds whitespace
-    });
+            if (i != entry.tags.length - 1)
+                entryTagList.appendChild(document.createTextNode("\u00A0")); // Adds whitespace
+        });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
