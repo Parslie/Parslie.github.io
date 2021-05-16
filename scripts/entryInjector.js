@@ -10,6 +10,12 @@ function activateImageViewer(image) {
     imageViewerBG.style.display = "block";
     imageViewer.style.display = "block";
     imageViewer.src = image;
+
+    imageViewer.style.maxWidth = (window.innerWidth - 128) + "px";
+    imageViewer.style.maxHeight = (window.innerHeight - 128) + "px";
+
+    imageViewer.style.marginTop = -imageViewer.offsetHeight / 2 + "px";
+    imageViewer.style.marginLeft = -imageViewer.offsetWidth / 2 + "px";
 }
 
 function createImageViewer() {
@@ -79,8 +85,7 @@ function createEntry(entry) {
         entryImgContainer.appendChild(entryImg);
         entryImg.src = entry.image;
         entryImg.onclick = function() {
-            imageViewer.style.display = "block";
-            viewedImage.src = entry.image;
+            activateImageViewer(entry.image);
         }
 
         function resizeImg() {
