@@ -10,6 +10,6 @@ a {
     content: "#";
 }
 
-.entry img {
+.entry > content img {
     cursor: pointer;
 }

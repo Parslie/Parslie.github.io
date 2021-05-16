@@ -52,15 +52,15 @@ nav a:hover, nav a.selected {
     color: var(--black);
 }
 
-body.red .entry a {
+body.red .entry a, body.red .entry h2 {
     color: var(--red);
 }
 
-body.green .entry a {
+body.green .entry a, body.green .entry h2 {
     color: var(--green);
 }
 
-body.blue .entry a {
+body.blue .entry a, body.blue .entry h2 {
     color: var(--blue);
 }
 

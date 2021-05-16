@@ -77,6 +77,10 @@
     flex-grow: 1;
 }
 
+.entry > content > ul {
+    list-style-position: inside;
+}
+
 .entry > content > .img-container {
     width: 100%;
     overflow: hidden;
@@ -84,10 +88,6 @@
 
 .entry > content > * + * {
     margin-top: 1em;
-}
-
-.entry > content > ul{
-    margin-left: 1em;
 }
 
 .entry > footer {
