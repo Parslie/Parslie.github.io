@@ -45,23 +45,25 @@ function createEntry(entry) {
     entryTitle.innerHTML = entry.title;
     entryTitle.className = "title";
 
-    let repoDate = document.createElement("p");
-    entryHeader.appendChild(repoDate);
-    repoDate.innerHTML = "Updated: ";
+    if (entry.repoURL != null) {
+        let repoDate = document.createElement("p");
+        entryHeader.appendChild(repoDate);
+        repoDate.innerHTML = "Updated: ";
 
-    fetch(entry.repoURL).then(resp => {
-        entryTitle.innerHTML = "";
+        fetch(entry.repoURL).then(resp => {
+            entryTitle.innerHTML = "";
 
-        resp.json().then(json => {
-            let repoLink = document.createElement("a");
-            entryTitle.appendChild(repoLink);
-            repoLink.innerHTML = entry.title;
-            repoLink.href = json.html_url;
+            resp.json().then(json => {
+                let repoLink = document.createElement("a");
+                entryTitle.appendChild(repoLink);
+                repoLink.innerHTML = entry.title;
+                repoLink.href = json.html_url;
 
-            let date = new Date(json.updated_at).toLocaleString();
-            repoDate.innerHTML += date;
+                let date = new Date(json.updated_at).toLocaleString();
+                repoDate.innerHTML += date;
+            });
         });
-    });
+    }
 
     ///////////////////////
     // Create entry content
