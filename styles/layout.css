@@ -81,8 +81,9 @@
     padding: var(--entry-padding);
 }
 
-.entry > content > img {
+.entry > content > .img-container {
     width: 100%;
+    overflow: hidden;
 }
 
 .tags li {

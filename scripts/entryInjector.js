@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function(event) {
     let entryParent = document.getElementById("entries");
 
@@ -5,10 +7,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     entries.forEach((entry, i) => {
         let entrySection = document.createElement("section");
         entrySection.className = "entry";
+        entryParent.appendChild(entrySection);
 
         let entryHeader = document.createElement("header");
+        entrySection.appendChild(entryHeader);
         let entryContent = document.createElement("content");
+        entrySection.appendChild(entryContent);
         let entryFooter = document.createElement("footer");
+        entrySection.appendChild(entryFooter);
 
         /* Header */
         let title = document.createElement("h2");
@@ -38,9 +44,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         /* Content */
         if (entry.image != null && entry.image != "") {
+            let imageContainer = document.createElement("div");
+            imageContainer.className = "img-container";
+            entryContent.appendChild(imageContainer);
+
             let image = document.createElement("img");
             image.src = entry.image;
-            entryContent.appendChild(image);
+            image.style.width = "100%";
+            imageContainer.appendChild(image);
+
+            function resizeImg(event) {
+                imageContainer.style.maxHeight = imageContainer.offsetWidth + "px";
+            }
+
+            image.onload = resizeImg;
+            window.addEventListener("resize", resizeImg);
         }
 
         let description = document.createElement("p");
@@ -62,11 +80,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             tagList.appendChild(document.createTextNode("\u00A0")); /* Adds whitespace */
         });
-
-        /* Append elements */
-        entryParent.appendChild(entrySection);
-        entrySection.appendChild(entryHeader);
-        entrySection.appendChild(entryContent);
-        entrySection.appendChild(entryFooter);
     });
 });
