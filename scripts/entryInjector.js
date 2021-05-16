@@ -1,113 +1,137 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-    let entryParent = document.getElementById("entries");
+var imageViewerBG;
+var imageViewer;
 
-    /* Create image viewer */
-    let imageViewer = document.createElement("div");
+function deactivateImageViewer() {
+    imageViewerBG.style.display = "none";
+    imageViewer.style.display = "none";
+}
+
+function activateImageViewer(image) {
+    imageViewerBG.style.display = "block";
+    imageViewer.style.display = "block";
+    imageViewer.src = image;
+}
+
+function createImageViewer() {
+    imageViewerBG = document.createElement("div");
+    imageViewerBG.id = "image-viewer-bg";
+    imageViewerBG.style.display = "none";
+    document.body.appendChild(imageViewerBG);
+
+    imageViewer = document.createElement("img");
     imageViewer.id = "image-viewer";
     imageViewer.style.display = "none";
     document.body.appendChild(imageViewer);
 
-    let viewedImage = document.createElement("img");
-    imageViewer.appendChild(viewedImage);
-
-    imageViewer.onclick = function() {
-        imageViewer.style.display = "none";
+    imageViewerBG.onclick = function() {
+        deactivateImageViewer();
     }
+}
 
-    /* Generate each entry */
-    entries.forEach((entry, i) => {
-        let entrySection = document.createElement("section");
-        entrySection.className = "entry";
-        entryParent.appendChild(entrySection);
+var entryParent;
 
-        let entryHeader = document.createElement("header");
-        entrySection.appendChild(entryHeader);
-        let entryContent = document.createElement("content");
-        entrySection.appendChild(entryContent);
-        let entryFooter = document.createElement("footer");
-        entrySection.appendChild(entryFooter);
+function createEntry(entry) {
+    let entrySection = document.createElement("section");
+    entryParent.appendChild(entrySection);
+    entrySection.className = "entry";
 
-        /* Header */
-        let title = document.createElement("h2");
-        title.className = "title";
+    //////////////////////
+    // Create entry header
+    let entryHeader = document.createElement("header");
+    entrySection.appendChild(entryHeader);
 
-        fetch(entry.repoURL)
-        .then(resp => {
-            resp.json().then(json => {
-                let repoLink = document.createElement("a");
-                repoLink.href = json.html_url;
-                repoLink.innerHTML = entry.title;
-                title.appendChild(repoLink);
+    let entryTitle = document.createElement("h2");
+    entryHeader.appendChild(entryTitle);
+    entryTitle.innerHTML = entry.title;
+    entryTitle.className = "title";
 
-                let date = json.updated_at;
-                let formattedDate = new Date(date).toLocaleString();
+    let repoDate = document.createElement("p");
+    entryHeader.appendChild(repoDate);
+    repoDate.innerHTML = "Updated: ";
 
-                let updatedText = document.createElement("p");
-                updatedText.innerHTML = "Updated: " + formattedDate;
-                entryHeader.appendChild(updatedText);
-            });
-        })
-        .catch(e => {
-            title.innerHTML = entry.title;
+    fetch(entry.repoURL).then(resp => {
+        entryTitle.innerHTML = "";
+
+        resp.json().then(json => {
+            let repoLink = document.createElement("a");
+            entryTitle.appendChild(repoLink);
+            repoLink.innerHTML = entry.title;
+            repoLink.href = json.html_url;
+
+            let date = new Date(json.updated_at).toLocaleString();
+            repoDate.innerHTML += date;
         });
+    });
 
-        entryHeader.appendChild(title);
+    ///////////////////////
+    // Create entry content
+    let entryContent = document.createElement("content");
+    entrySection.appendChild(entryContent);
 
-        /* Content */
-        if (entry.image != null && entry.image != "") {
-            let imageContainer = document.createElement("div");
-            imageContainer.className = "img-container";
-            entryContent.appendChild(imageContainer);
+    if (entry.image != null) {
+        let entryImgContainer = document.createElement("div");
+        entryContent.appendChild(entryImgContainer);
+        entryImgContainer.className = "img-container";
 
-            let image = document.createElement("img");
-            image.className = "clickable-img";
-            image.src = entry.image;
-            imageContainer.appendChild(image);
+        let entryImg = document.createElement("img");
+        entryImgContainer.appendChild(entryImg);
+        entryImg.src = entry.image;
+        entryImg.onclick = function() {
+            imageViewer.style.display = "block";
+            viewedImage.src = entry.image;
+        }
 
-            function resizeImg(event) {
-                imageContainer.style.height = imageContainer.offsetWidth + "px";
+        function resizeImg() {
+            entryImgContainer.style.height = entryImgContainer.offsetWidth + "px";
+        }
+
+        let imgObj = new Image();
+        imgObj.src = entry.image;
+        imgObj.onload = function() {
+            resizeImg();
+
+            if (imgObj.width < imgObj.height) {
+                entryImg.style.width = "100%";
             }
-
-            let imageObj = new Image();
-            imageObj.src = entry.image;
-            imageObj.onload = function() {
-                resizeImg();
-
-                if (imageObj.width < imageObj.height) {
-                    image.style.width = "100%";
-                }
-                else {
-                    image.style.height = "100%";
-                }
-            }
-
-            window.addEventListener("resize", resizeImg);
-
-            /* Activate image viewer onclick */
-            image.onclick = function() {
-                imageViewer.style.display = "block";
-                viewedImage.src = entry.image;
+            else {
+                entryImg.style.height = "100%";
             }
         }
 
-        let description = document.createElement("p");
-        description.innerHTML = entry.description;
-        entryContent.appendChild(description);
+        window.addEventListener("resize", resizeImg);
+    }
 
-        /* Footer */
-        let tagList = document.createElement("ul");
-        tagList.className = "tags";
-        entryFooter.appendChild(tagList);
+    let entryDescription = document.createElement("p");
+    entryContent.appendChild(entryDescription);
+    entryDescription.innerHTML = entry.description;
 
-        entry.tags.forEach((tag, i) => {
-            let tagItem = document.createElement("li");
-            tagList.appendChild(tagItem);
+    //////////////////////
+    // Create entry footer
+    let entryFooter = document.createElement("footer");
+    entrySection.appendChild(entryFooter);
 
-            let tagLink = document.createElement("a");
-            tagLink.innerHTML = tag;
-            tagItem.appendChild(tagLink);
+    let entryTagList = document.createElement("ul");
+    entryFooter.appendChild(entryTagList);
+    entryTagList.className = "tags";
 
-            tagList.appendChild(document.createTextNode("\u00A0")); /* Adds whitespace */
-        });
+    entry.tags.forEach((tag, i) => {
+        let entryTag = document.createElement("li");
+        entryTagList.appendChild(entryTag);
+
+        let entryTagLink = document.createElement("a");
+        entryTag.appendChild(entryTagLink);
+        entryTagLink.innerHTML = tag;
+
+        if (i != entry.tags.length - 1)
+            entryTagList.appendChild(document.createTextNode("\u00A0")); // Adds whitespace
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    createImageViewer();
+
+    entryParent = document.getElementById("entries");
+    entries.forEach(entry => {
+        createEntry(entry);
     });
 });

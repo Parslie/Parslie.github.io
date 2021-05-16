@@ -68,12 +68,12 @@ body.blue .entry a {
     filter: brightness(75%);
 }
 
-/* Misc */
-
-#image-viewer {
-    background-color: #000a;
+.entry img:hover {
+    filter: brightness(75%);
 }
 
-.clickable-img:hover {
-    filter: brightness(75%);
+/* Misc */
+
+#image-viewer-bg {
+    background-color: #000a;
 }

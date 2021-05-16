@@ -3,7 +3,6 @@ const entries = JSON.parse(`
         {
             "repoURL": "https://api.github.com/repos/Parslie/stardew-planney",
             "title": "Stardew Planney",
-            "image": "",
             "description": "A stardew valley farm planner with intuitive UI and controls.  // TODO: add to",
             "tags": ["Utility", "CS", "Unity"]
         },{
