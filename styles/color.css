@@ -1,21 +1,21 @@
 :root {
-    --black: #081824;
+    --black: #111111;
     --white: #f8f8f8;
-    --red: #e25249;
-    --green: #bed255;
-    --blue: #007ec8;
+    --cyan: #0493d3;
+    --magenta: #cb046b;
+    --yellow: #fff10c;
 }
 
-body.red {
-    background-color: var(--red);
+body.cyan {
+    background-color: var(--cyan);
 }
 
-body.green {
-    background-color: var(--green);
+body.magenta {
+    background-color: var(--magenta);
 }
 
-body.blue {
-    background-color: var(--blue);
+body.yellow {
+    background-color: var(--yellow);
 }
 
 /* Sidebar Menu */
@@ -25,16 +25,16 @@ body.blue {
     color: var(--white);
 }
 
-nav a.red:hover, nav a.red.selected {
-    background-color: var(--red);
+nav a.cyan:hover, nav a.cyan.selected {
+    background-color: var(--cyan);
 }
 
-nav a.green:hover, nav a.green.selected {
-    background-color: var(--green);
+nav a.magenta:hover, nav a.magenta.selected {
+    background-color: var(--magenta);
 }
 
-nav a.blue:hover, nav a.blue.selected {
-    background-color: var(--blue);
+nav a.yellow:hover, nav a.yellow.selected {
+    background-color: var(--yellow);
 }
 
 nav a {
@@ -52,16 +52,16 @@ nav a:hover, nav a.selected {
     color: var(--black);
 }
 
-body.red .entry a, body.red .entry h2 {
-    color: var(--red);
+body.cyan .entry a, body.cyan .entry h2 {
+    color: var(--cyan);
 }
 
-body.green .entry a, body.green .entry h2 {
-    color: var(--green);
+body.magenta .entry a, body.magenta .entry h2 {
+    color: var(--magenta);
 }
 
-body.blue .entry a, body.blue .entry h2 {
-    color: var(--blue);
+body.yellow .entry a, body.yellow .entry h2 {
+    color: var(--yellow);
 }
 
 .entry a:hover {
